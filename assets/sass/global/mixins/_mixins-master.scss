@@ -1,0 +1,84 @@
+// Rem output with px fallback
+@mixin font-size($sizeValue: 1) {
+	font-size: ($sizeValue * 16) * 1px;
+	font-size: $sizeValue * 1rem;
+}
+
+// Center block
+@mixin center-block {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@mixin max-width-global {
+	max-width: 1170px;
+}
+
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+	clear: both;
+}
+
+// Box shadow featured.
+@mixin box-shadow-featured() {
+	box-shadow: 0px 7px 40px 0px rgba( $color__background-black, 0.15);
+}
+
+// Box shadow featured hover.
+@mixin box-shadow-featured_hover() {
+	box-shadow: 0px 3px 20px 0px rgba( $color__background-black, 0.15);
+}
+
+// Box shadow button.
+@mixin box-shadow-button() {
+	box-shadow: 0px 1px 15px 0px rgba( $color__background-black, 0.15);
+}
+
+// Viewport sized typography with minimum and maximum values
+// Inspiration: https://css-tricks.com/molten-leading-css/
+// More inspiration: https://www.smashingmagazine.com/2016/05/fluid-typography/
+//
+// Source: https://codepen.io/eduardoboucas/pen/YXxmwv
+//
+// @author Eduardo Boucas (@eduardoboucas)
+//
+// @param {Number}   $responsive  - Viewport-based size
+// @param {Number}   $min         - Minimum font size (px)
+// @param {Number}   $max         - Maximum font size (px)
+//                                  (optional)
+// @param {Number}   $fallback    - Fallback for viewport-
+//                                  based units (optional)
+//
+// @example scss - 5vw font size (with 50px fallback),
+//                 minumum of 35px and maximum of 150px
+//  @include responsive-font(5vw, 35px, 150px, 50px);
+//
+@mixin responsive-font($responsive, $min, $max: false, $fallback: false) {
+	$responsive-unitless: $responsive / ($responsive - $responsive + 1);
+	$dimension: if(unit($responsive) == 'vh', 'height', 'width');
+	$min-breakpoint: $min / $responsive-unitless * 100;
+	font-size: $responsive;
+  
+	@media (max-#{$dimension}: #{$min-breakpoint}) {
+	  font-size: $min;
+	}
+  
+	@if $max {
+	  $max-breakpoint: $max / $responsive-unitless * 100;
+  
+	  @media (min-#{$dimension}: #{$max-breakpoint}) {
+		font-size: $max;
+	  }
+	}
+  
+	@if $fallback {
+	  font-size: $fallback;
+	}
+  }

@@ -1,0 +1,95 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	clear: both;
+	font-weight: 700;
+	line-height: 1.2;
+	margin-bottom: 1rem;
+	margin-top: 0;
+}
+
+.single-post .entry-title {
+	margin-bottom: 0.5rem;
+}
+
+.entry-content h2,
+.entry-content h3,
+.entry-content h4,
+.entry-content h5,
+.entry-content h6 {
+	margin-top: 1rem;
+}
+
+h1,
+.heading-one {
+	@include responsive-font(5vw, 24px, 34px);
+}
+
+.header-image-content .page-title {
+	@include responsive-font(5vw, 24px, 48px);
+}
+
+h2 {
+	@include responsive-font(4vw, 20px, 28px);
+}
+
+h3 {
+	@include responsive-font(3vw, 18px, 24px);
+}
+
+h4,
+h5,
+h6,
+.site-title,
+.heading-medium,
+.entry-inner .entry-title,
+.page-template-templates .grid-wrapper-3cl h2 {
+	@include responsive-font(2vw, 17px, 22px);
+}
+
+.heading-medium,
+.widget-title {
+	font-weight: 500;
+	line-height: 1.4;
+}
+
+.widget-title {
+	font-size: 1em;
+}
+
+.main-widget-area .widget-title {
+	background-color: $color__background-screen;
+	border-left: 3px solid $color__background-element;
+	padding: 0.5rem 0.5rem 0.5rem 1rem;
+}
+
+body span.entry-subtitle {
+	color: $color__text-main;
+	font-size: 0.88888888em;
+}
+
+.page-title,
+.entry-subtitle.archive-description {
+	text-shadow: 0 1px 1px rgba( $color__background-black, 0.2)
+}
+
+.site-title {
+	font-weight: 500;
+	margin: 0;
+}
+
+.site-title,
+.site-title a,
+.site-title a:visited,
+.site-title a:hover,
+.site-title a:focus,
+.site-title a:active {
+	color: $color__text-light;
+}
+
+.entry-inner .entry-title {
+	font-weight: 500;
+}
