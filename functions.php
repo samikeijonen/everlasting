@@ -148,8 +148,8 @@ function everlasting_fonts_url() {
 	$subsets   = 'latin';
 
 	/* translators: If there are characters in your language that are not supported by Poppins, translate this to 'off'. Do not translate into your own language. */
-	if ( 'off' !== esc_attr_x( 'on', 'Poppins font: on or off', 'everlasting' ) ) {
-		$fonts[] = 'Poppins:400,500,600,700';
+	if ( 'off' !== esc_attr_x( 'on', 'Barlow font: on or off', 'everlasting' ) ) {
+		$fonts[] = 'Barlow:400,500,600,700';
 	}
 
 	// Set fonts if there are any.
